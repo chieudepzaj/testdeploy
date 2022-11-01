@@ -12,6 +12,10 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 repositories {
 	mavenCentral()
 }
+jar {
+    baseName = 'app'
+    version = '0.0.1'
+}
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
