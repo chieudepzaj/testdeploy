@@ -60,8 +60,7 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/users", "/api/users").authenticated()
-                .anyRequest().permitAll()
-                .and().exceptionHandling().accessDeniedPage("/403").authenticationEntryPoint(jwtAuthenticationEntryPoint).and().
+                .anyRequest().permitAll().and().
                 formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/users")
@@ -69,6 +68,7 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .logout().logoutSuccessUrl("/").permitAll()
+                .and().exceptionHandling().accessDeniedPage("/403").authenticationEntryPoint(jwtAuthenticationEntryPoint)
                 .and().addFilterBefore(customJwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
