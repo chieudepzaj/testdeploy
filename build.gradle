@@ -1,0 +1,42 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.4'
+	id 'io.spring.dependency-management' version '1.0.14.RELEASE'
+	id 'java'
+	id 'war'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-devtools'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	implementation group: 'javax.validation', name: 'validation-api', version: '2.0.0.Final'
+	implementation group: 'io.jsonwebtoken' , name: 'jjwt', version: '0.9.1'
+	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.28'
+	//////////Swagger UI
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-parent', version: '2.4.0'
+	implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+	implementation group: 'io.springfox', name: 'springfox-bean-validators', version: '3.0.0'
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+	implementation 'io.springfox:springfox-swagger2:3.0.0'
+	implementation group: 'com.google.guava', name: 'guava', version: '24.1.1-jre'
+	//Lombok
+	implementation 'org.projectlombok:lombok:1.18.24'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

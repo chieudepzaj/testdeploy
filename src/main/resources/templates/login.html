@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===========================
+    SITE TITLE
+    =========================== -->
+    <title>Sign In</title>
+    <!-- ===========================
+    STYLESHEETS
+    =========================== -->
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="Background">
+    <div class="Container">
+        <form
+                method="post"
+                th:action="@{/login}"
+                role="form"
+        >
+            <div class="Sign-In">
+                Sign In
+            </div>
+            <img src="../images/icon-basic-close.svg" class="Fill">
+            <div class="-Input-Label">
+                <div class="Light-Grey">
+                <span class="Type">
+                  Login
+                </span>
+                </div>
+                <div class="input">
+                    <input class="email"
+                           type="text"
+                           id="username"
+                           name="username"/>
+                    <img class="image" src="../images/icon-basic-check-circle.svg"/>
+                </div>
+            </div>
+
+            <div class="-Input-Label">
+                <div class="Light-Grey">
+                <span class="Type">
+                  Password
+                </span>
+                </div>
+                <div class="input">
+                    <input type="password"
+                           id="password"
+                           name="password" class="email"/>
+                    <img class="image" src="../images/icon-basic-lock.svg"/>
+                </div>
+            </div>
+
+            <div class="-Button-Label">
+                <button class="normal-button" type="submit"> Login</button>
+            </div>
+            <div class="button-login">
+                <button class="button-i"> Continue with Facebook <img style="width: 18px;height: 18px;margin-left: 5px"
+                                                                      src="../images/blue@3x.png "/></button>
+            </div>
+
+            <div class="Forgot-your-password">
+                <span>Do you haven't an account ?<a th:href="@{/register}" style="text-decoration: none; color: blue"> Register Here</a> </span>
+            </div>
+        </form>
+        <div th:if="${param.error !=null}">
+            <div class="alert alert-info"
+                 style="margin-top: 40px;font-size: 20px;font-family: Muli, sans-serif;color: red">Password or username wrong!!!
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

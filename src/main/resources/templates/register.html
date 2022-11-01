@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="Background" style="min-height: 800px">
+    <div class="Container" style="height: 720px;">
+        <form method="post" role="form" th:action="@{/register/save}" th:object="${user}">
+            <div class="Sign-In">
+                Register
+            </div>
+            <img src="../images/icon-basic-close.svg" class="Fill">
+
+            <div class="-Input-Label">
+                <div class="Light-Grey">
+                <span class="Type">
+                  User Name
+                </span>
+                </div>
+                <div class="input">
+                    <input class="email"
+                           id="firstName"
+                           name="firstName"
+                           placeholder="Enter username"
+                           th:field="*{username}"
+                           type="text"/>
+                    <img class="image" src="../images/icon-basic-check-circle.svg"/>
+                    <p th:errors="*{username}" class="alert alert-info"
+                       th:if="${#fields.hasErrors('username')}">
+                    </p>
+                </div>
+            </div>
+
+            <div class="-Input-Label">
+                <div class="Light-Grey">
+                <span class="Type">
+                  Password
+                </span>
+                </div>
+                <div class="input">
+                    <input class="email"
+                           id="email"
+                           name="email"
+                           placeholder="Enter password"
+                           th:field="*{password}"
+                           type="password"/>
+                    <img class="image" src="../images/icon-basic-lock.svg"/>
+                    <p th:errors="*{password}" class="alert alert-info"
+                       th:if="${#fields.hasErrors('password')}">
+                    </p>
+                </div>
+            </div>
+            <div class="-Input-Label">
+                <div class="Light-Grey">
+                <span class="Type">
+                  Confirm Password
+                </span>
+                </div>
+                <div class="input">
+                    <input class="email"
+                           placeholder="Enter cofirm password"
+                           type="password"/>
+                    <img class="image" src="../images/icon-basic-lock.svg"/>
+
+                </div>
+            </div>
+
+            <div class="-Input-Label">
+                <div class="Light-Grey">
+                <span class="Type">
+                  Role
+                </span>
+                </div>
+                <div class="input">
+                    <select id="role"
+                            name="role"
+                            th:field="*{role}"
+                            style="height: 52px"
+                            class="email">
+                        <option value="">Select Role</option>
+                        <option value="ROLE_ADMIN">ROLE ADMIN</option>
+                        <option value="ROLE_USER">ROLE USER</option>
+                    </select>
+                    <p th:errors="*{role}" class="alert alert-info"
+                       th:if="${#fields.hasErrors('role')}">
+                    </p>
+                </div>
+            </div>
+
+            <div class="-Button-Label">
+                <button class="normal-button" type="submit"> Register</button>
+            </div>
+            <div class="Forgot-your-password">
+                <span>Already registered? <a th:href="@{/login}" style="text-decoration: none; color: blue"> Login
+                             here</a> </span>
+            </div>
+        </form>
+        <div th:if="${param.success}">
+            <div class="alert alert-info"
+                 style="margin-top: 40px;font-size: 20px;font-family: Muli, sans-serif;color: red">You've successfully
+                registered
+                to our app!
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
